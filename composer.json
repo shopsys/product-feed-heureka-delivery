@@ -28,10 +28,10 @@
         "shopsys/framework": "dev-tp-symfony4 as dev-master",
         "shopsys/migrations": "dev-tp-symfony4 as dev-master",
         "shopsys/plugin-interface": "dev-tp-symfony4 as dev-master",
-        "symfony/config": "^3.4|4.0",
-        "symfony/dependency-injection": "^3.4|4.0",
-        "symfony/framework-bundle": "^3.4|4.0",
-        "symfony/http-kernel": "^3.4|4.0"
+        "symfony/config": "^4.4",
+        "symfony/dependency-injection": "^4.4",
+        "symfony/framework-bundle": "^4.4",
+        "symfony/http-kernel": "^4.4"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0",
