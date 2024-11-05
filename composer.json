@@ -27,10 +27,10 @@
         "shopsys/framework": "16.0.x-dev",
         "shopsys/migrations": "16.0.x-dev",
         "shopsys/plugin-interface": "16.0.x-dev",
-        "symfony/config": "^5.4",
-        "symfony/dependency-injection": "^5.4",
-        "symfony/framework-bundle": "^5.4",
-        "symfony/http-kernel": "^5.4",
+        "symfony/config": "^6.4",
+        "symfony/dependency-injection": "^6.4",
+        "symfony/framework-bundle": "^6.4",
+        "symfony/http-kernel": "^6.4",
         "twig/twig": "^3.14.0"
     },
     "require-dev": {
