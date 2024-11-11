@@ -35,13 +35,13 @@ class HeurekaDeliveryDataRepository
     ): array {
         $queryBuilder = $this->productRepository->getAllSellableQueryBuilder($domainConfig->getId(), $pricingGroup);
         $queryBuilder
+            ->select('p.id, SUM(ps.productQuantity) as stockQuantity')
             ->andWhere('p.productType != :inquiryProductType')
-            ->setParameter('inquiryProductType', ProductTypeEnum::TYPE_INQUIRY);
-        $queryBuilder->leftJoin(ProductStock::class, 'ps', Join::WITH, 'ps.product = p');
-        $queryBuilder->having('SUM(ps.productQuantity) > 0');
-
-
-        $queryBuilder->select('p.id, SUM(ps.productQuantity) as stockQuantity')
+            ->setParameter('inquiryProductType', ProductTypeEnum::TYPE_INQUIRY)
+            ->leftJoin(ProductStock::class, 'ps', Join::WITH, 'ps.product = p')
+            ->join('ps.stock', 's')
+            ->join('s.domains', 'sd', Join::WITH, 's.id = sd.stock AND sd.domainId = :domainId AND sd.isEnabled = TRUE')
+            ->having('SUM(ps.productQuantity) > 0')
             ->groupBy('p.id')
             ->orderBy('p.id', 'asc')
             ->setMaxResults($maxResults);
